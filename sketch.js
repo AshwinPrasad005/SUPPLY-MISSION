@@ -15,14 +15,9 @@ function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
 
-	package_option(
-		restitution = 0.3
-	)
-
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
-	packageSprite.x = helicopterSprite.x;
 
 	helicopterSprite=createSprite(width/2, 200, 10,10);
 	helicopterSprite.addImage(helicopterIMG)
@@ -35,7 +30,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:1.5, isStatic:true});
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.6, isStatic:true});
 	World.add(world, packageBody);
 	
 
@@ -66,11 +61,11 @@ function keyPressed() {
 }
 
 function move(){
-	if(keyCode === LEFT_ARROW){
+	if(keyDown === LEFT_ARROW){
 		helicopterSprite.x = +20;
 	}
 
-	if(keyCode === RIGHT_ARROW){
+	if(keyDown === RIGHT_ARROW){
 		helicopterSprite.x = -20;
 	}
 
